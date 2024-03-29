@@ -60,6 +60,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player2"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player2}
             onChange={handleInputChange}
@@ -67,6 +68,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player3"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player3}
             onChange={handleInputChange}
@@ -74,6 +76,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player4"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player4}
             onChange={handleInputChange}
@@ -81,6 +84,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player5"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player5}
             onChange={handleInputChange}
@@ -89,6 +93,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player6"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player6}
             onChange={handleInputChange}
@@ -96,6 +101,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player7"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player7}
             onChange={handleInputChange}
@@ -103,6 +109,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player8"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player8}
             onChange={handleInputChange}
@@ -110,6 +117,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player9"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player9}
             onChange={handleInputChange}
@@ -117,6 +125,7 @@ function TeamModule({
           <input
             type="text"
             placeholder="Enter name"
+            name="player10"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             value={inputValue.player10}
             onChange={handleInputChange}
