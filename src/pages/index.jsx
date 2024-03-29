@@ -20,14 +20,16 @@ export default function Home({ championNames }) {
 
   const generateTeams = () => {
     const shuffledNames = shuffle(championNames);
-    setTeam1(shuffledNames.slice(0, 10));
-    setTeam2(shuffledNames.slice(10, 20));
+
+    setTeam1(shuffledNames.slice(0, 10).join(", "));
+    setTeam2(shuffledNames.slice(10, 20).join(", "));
   };
 
   const resetTeams = () => {
     setTeam1([]);
     setTeam2([]);
   };
+
   return (
     <div className="bg-league_blue_header h-screen">
       <div className="p-5">
