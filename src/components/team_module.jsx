@@ -1,14 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-function team_module({
+function TeamModule({
   championNames,
   generateTeams,
   team1,
   team2,
   resetTeams,
-}) 
-{
+}) {
   const [inputValue, setInputValues] = useState({
     player1: "",
     player2: "",
@@ -42,9 +41,7 @@ function team_module({
       player9: "",
       player10: "",
     });
-  }
-
-
+  };
 
   return (
     <div className="flex justify-between space-x-4 items-stretch">
@@ -146,4 +143,4 @@ function team_module({
   );
 }
 
-export default team_module;
+export default TeamModule;
