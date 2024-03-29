@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "Sportesia";
+  src: url("/Sportesia.otf");
+}
+
+@font-face {
+  font-family: "BeaufortHeavy";
+  src: url("/BeaufortforLOL-Heavy.otf");
+}
+
+@font-face {
+  font-family: "BeaufortHeavyItalic";
+  src: url("/BeaufortforLOL-HeavyItalic.otf");
+}
