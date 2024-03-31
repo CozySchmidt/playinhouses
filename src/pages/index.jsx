@@ -49,15 +49,15 @@ export default function Home({ championNames }) {
         championNames[i],
       ];
     }
-    const randomChampionNames = championNames.slice(0, 20);
+    const randomChampionNames = championNames.slice(0, 30);
     return randomChampionNames;
   }
 
   const generateTeams = () => {
     const shuffledNames = shuffle(championNames);
 
-    setTeam1(shuffledNames.slice(0, 10));
-    setTeam2(shuffledNames.slice(10, 20));
+    setTeam1(shuffledNames.slice(0, 15));
+    setTeam2(shuffledNames.slice(15, 30));
   };
 
   const resetTeams = () => {
@@ -87,17 +87,33 @@ export default function Home({ championNames }) {
                     <>
                       <img
                         className="mr-4"
-                        src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${team1[i]}.png`}
+                        src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${team1[i]}.png`}
                         alt={team1[i]}
+                        title={team1[i]}
                         width="55"
                         height="55"
                       />
                       <img
                         className=""
-                        src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${
+                        src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${
                           team1[selectedFormat.count === 4 ? i + 4 : i + 5]
                         }.png`}
                         alt={team1[selectedFormat.count === 4 ? i + 4 : i + 5]}
+                        title={
+                          team1[selectedFormat.count === 4 ? i + 4 : i + 5]
+                        }
+                        width="55"
+                        height="55"
+                      />
+                      <img
+                        className="mr-4 ml-4"
+                        src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${
+                          team1[selectedFormat.count === 4 ? i + 8 : i + 10]
+                        }.png`}
+                        alt={team1[selectedFormat.count === 4 ? i + 8 : i + 10]}
+                        title={
+                          team1[selectedFormat.count === 4 ? i + 8 : i + 10]
+                        }
                         width="55"
                         height="55"
                       />
@@ -163,17 +179,33 @@ export default function Home({ championNames }) {
                     <>
                       <img
                         className="mr-4"
-                        src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${team2[i]}.png`}
+                        src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${team2[i]}.png`}
                         alt={team2[i]}
+                        title={team2[i]}
                         width="55"
                         height="55"
                       />
                       <img
                         className=""
-                        src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${
+                        src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${
                           team2[selectedFormat.count === 4 ? i + 4 : i + 5]
                         }.png`}
                         alt={team2[selectedFormat.count === 4 ? i + 4 : i + 5]}
+                        title={
+                          team2[selectedFormat.count === 4 ? i + 4 : i + 5]
+                        }
+                        width="55"
+                        height="55"
+                      />
+                      <img
+                        className="mr-4 ml-4"
+                        src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${
+                          team2[selectedFormat.count === 4 ? i + 8 : i + 10]
+                        }.png`}
+                        alt={team2[selectedFormat.count === 4 ? i + 8 : i + 10]}
+                        title={
+                          team2[selectedFormat.count === 4 ? i + 8 : i + 10]
+                        }
                         width="55"
                         height="55"
                       />
