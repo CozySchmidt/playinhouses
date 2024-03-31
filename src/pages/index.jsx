@@ -3,14 +3,16 @@ import { useState } from "react";
 import Dropdown from "../components/Dropdown";
 
 export default function Home({ championNames }) {
-  const people = [
+  const format = [
     { id: 1, name: "4v4", count: 4, unavailable: false },
     { id: 2, name: "5v5", count: 5, unavailable: false },
   ];
-  const [selectedPerson, setSelectedPerson] = useState(people[0]);
+  const [selectedFormat, setSelectedFormat] = useState(format[0]);
   const [team1, setTeam1] = useState([]);
   const [team2, setTeam2] = useState([]);
+  const [isGenerated, setIsGenerated] = useState(false);
 
+  console.log(typeof team1);
   const [inputValue, setInputValues] = useState({
     player1: "",
     player2: "",
@@ -54,8 +56,8 @@ export default function Home({ championNames }) {
   const generateTeams = () => {
     const shuffledNames = shuffle(championNames);
 
-    setTeam1(shuffledNames.slice(0, 10).join(", "));
-    setTeam2(shuffledNames.slice(10, 20).join(", "));
+    setTeam1(shuffledNames.slice(0, 10));
+    setTeam2(shuffledNames.slice(10, 20));
   };
 
   const resetTeams = () => {
@@ -78,17 +80,40 @@ export default function Home({ championNames }) {
         </p>
         <div className="p-20">
           <div className="flex justify-between space-x-4 mb-4">
-            <div className="w-1/3 bg-white rounded-md font-beaufortheavy">
-              {team1}
+            <div className="w-1/3 rounded-md font-beaufortheavy">
+              {Array.from({ length: selectedFormat.count }).map((_, i) => (
+                <div key={i} className="flex justify-end items-center mb-4 ">
+                  {isGenerated && (
+                    <>
+                      <img
+                        className="mr-4"
+                        src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${team1[i]}.png`}
+                        alt={team1[i]}
+                        width="55"
+                        height="55"
+                      />
+                      <img
+                        className=""
+                        src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${
+                          team1[selectedFormat.count === 4 ? i + 4 : i + 5]
+                        }.png`}
+                        alt={team1[selectedFormat.count === 4 ? i + 4 : i + 5]}
+                        width="55"
+                        height="55"
+                      />
+                    </>
+                  )}
+                </div>
+              ))}
             </div>
             <div className="w-1/3 ">
-              {Array.from({ length: selectedPerson.count }).map((_, i) => (
-                <div key={i} className="grid grid-cols-2 gap-9 mb-4">
+              {Array.from({ length: selectedFormat.count }).map((_, i) => (
+                <div key={i} className="grid grid-cols-2 gap-9 mb-6">
                   <input
                     type="text"
                     placeholder="Enter name"
                     name={`player${2 * i + 1}`}
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 font-beaufortheavy"
+                    className="h-12 text-2xl bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 font-beaufortheavy"
                     value={inputValue[`player${2 * i + 1}`]}
                     onChange={handleInputChange}
                   />
@@ -96,7 +121,7 @@ export default function Home({ championNames }) {
                     type="text"
                     placeholder="Enter name"
                     name={`player${2 * i + 2}`}
-                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 font-beaufortheavy"
+                    className="h-12 text-2xl bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 font-beaufortheavy"
                     value={inputValue[`player${2 * i + 2}`]}
                     onChange={handleInputChange}
                   />
@@ -105,31 +130,58 @@ export default function Home({ championNames }) {
               <div className="flex flex-row justify-between items-center">
                 <button
                   className="bg-yellow-600  hover:bg-blue-700 text-white font-bold py-2 px-4 mr-4 rounded font-beaufortheavy"
-                  onClick={generateTeams}
+                  onClick={() => {
+                    generateTeams();
+                    setIsGenerated(true);
+                  }}
                 >
                   Generate
                 </button>
+                <div className="bg-yellow-600 absolute bg-white rounded-md p-2 ml-28 font-beaufortheavy text-white">
+                  <Dropdown
+                    selectedFormat={selectedFormat}
+                    setSelectedFormat={setSelectedFormat}
+                    format={format}
+                  />
+                </div>
                 <button
                   className="bg-yellow-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font-beaufortheavy"
                   onClick={() => {
                     resetTeams();
                     resetNames();
+                    setIsGenerated(false);
                   }}
                 >
                   Reset
                 </button>
               </div>
             </div>
-            <div className="w-1/3 bg-white rounded-md font-beaufortheavy">
-              {team2}
+            <div className="w-1/3 rounded-md font-beaufortheavy">
+              {Array.from({ length: selectedFormat.count }).map((_, i) => (
+                <div key={i} className="flex items-start items-center mb-4">
+                  {isGenerated && (
+                    <>
+                      <img
+                        className="mr-4"
+                        src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${team2[i]}.png`}
+                        alt={team2[i]}
+                        width="55"
+                        height="55"
+                      />
+                      <img
+                        className=""
+                        src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/${
+                          team2[selectedFormat.count === 4 ? i + 4 : i + 5]
+                        }.png`}
+                        alt={team2[selectedFormat.count === 4 ? i + 4 : i + 5]}
+                        width="55"
+                        height="55"
+                      />
+                    </>
+                  )}
+                </div>
+              ))}
             </div>
-          </div>
-          <div className="bg-yellow-600 absolute bg-white rounded-md p-2 font-beaufortheavy text-white">
-            <Dropdown
-              selectedPerson={selectedPerson}
-              setSelectedPerson={setSelectedPerson}
-              people={people}
-            />
           </div>
         </div>
       </div>

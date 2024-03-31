@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 
-function MyListbox({ selectedPerson, setSelectedPerson, people }) {
+function MyListbox({ selectedFormat, setSelectedFormat, format}) {
   return (
     <div className="">
-      <Listbox value={selectedPerson} onChange={setSelectedPerson}>
-        <Listbox.Button>{selectedPerson.name}</Listbox.Button>
+      <Listbox value={selectedFormat} onChange={setSelectedFormat}>
+        <Listbox.Button>{selectedFormat.name}</Listbox.Button>
         <Listbox.Options>
-          {people.map((person) => (
+          {format.map((format) => (
             <Listbox.Option
-              key={person.id}
-              value={person}
-              disabled={person.unavailable}
+              key={format.id}
+              value={format}
+              disabled={format.unavailable}
             >
-              {person.name}
+              {format.name}
             </Listbox.Option>
           ))}
         </Listbox.Options>
