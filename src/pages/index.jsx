@@ -73,7 +73,7 @@ export default function Home({ championNames }) {
   return (
     <div className="bg-league_blue_header h-screen">
       <div className="p-5">
-        <p className="font-bold text-league_gold text-center text-3xl font-beaufortheavyitalic">
+        <p className="font-bold text-yellow-600 text-center text-3xl font-beaufortheavyitalic">
           InHouses
         </p>
         <div className="p-20">
@@ -104,13 +104,13 @@ export default function Home({ championNames }) {
               ))}
               <div className="flex flex-row justify-between items-center">
                 <button
-                  className="bg-league_gold hover:bg-blue-700 text-white font-bold py-2 px-4 mr-4 rounded font-beaufortheavy"
+                  className="bg-yellow-600  hover:bg-blue-700 text-white font-bold py-2 px-4 mr-4 rounded font-beaufortheavy"
                   onClick={generateTeams}
                 >
                   Generate
                 </button>
                 <button
-                  className="bg-league_gold hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font-beaufortheavy"
+                  className="bg-yellow-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font-beaufortheavy"
                   onClick={() => {
                     resetTeams();
                     resetNames();
@@ -124,7 +124,7 @@ export default function Home({ championNames }) {
               {team2}
             </div>
           </div>
-          <div className="bg-blue-500 absolute bg-white rounded-md p-2 font-beaufortheavy text-black">
+          <div className="bg-yellow-600 absolute bg-white rounded-md p-2 font-beaufortheavy text-white">
             <Dropdown
               selectedPerson={selectedPerson}
               setSelectedPerson={setSelectedPerson}
