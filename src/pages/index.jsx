@@ -124,7 +124,7 @@ export default function Home({ championNames }) {
               {team2}
             </div>
           </div>
-          <div className="bg-league_gold absolute bg-white rounded-md p-2 font-beaufortheavy text-white">
+          <div className="bg-blue-500 absolute bg-white rounded-md p-2 font-beaufortheavy text-white">
             <Dropdown
               selectedPerson={selectedPerson}
               setSelectedPerson={setSelectedPerson}
