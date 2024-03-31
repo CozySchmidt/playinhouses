@@ -1,8 +1,14 @@
 import Image from "next/image";
-import TeamModule from "../components/team_module";
 import { useState } from "react";
+import Dropdown from "../components/Dropdown";
 
-export default function Home({ championNames }) {
+export default function Home() {
+  
+  const people = [
+    { id: 1, name: "4v4", count: 4, unavailable: false },
+    { id: 2, name: "5v5", count: 5, unavailable: false },
+  ];
+  const [selectedPerson, setSelectedPerson] = useState(people[0]);
   const [team1, setTeam1] = useState([]);
   const [team2, setTeam2] = useState([]);
 
@@ -37,13 +43,44 @@ export default function Home({ championNames }) {
           InHouses
         </p>
         <div className="p-20">
-          <TeamModule
-            championNames={championNames}
-            generateTeams={generateTeams}
-            team1={team1}
-            team2={team2}
-            resetTeams={resetTeams}
-          />
+          <div className="flex justify-between space-x-4 items-stretch mb-4">
+            <div className="w-1/3 bg-white rounded-md"></div>
+            <div className="w-1/3 ">
+              {Array.from({ length: selectedPerson.count }).map((_, i) => (
+                <div key={i} className="grid grid-cols-2 gap-9 mb-4">
+                  <input
+                    type="text"
+                    placeholder="Enter name"
+                    name={`player${2 * i + 1}`}
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                  />
+                  {/* Right side input */}
+                  <input
+                    type="text"
+                    placeholder="Enter name"
+                    name={`player${2 * i + 2}`}
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                  />
+                </div>
+              ))}
+              <div className="p-2">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Generate
+                </button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Reset
+                </button>
+              </div>
+            </div>
+            <div className="w-1/3 bg-white rounded-md"></div>
+          </div>
+          <div className="absolute bg-white rounded-md p-2">
+            <Dropdown
+              selectedPerson={selectedPerson}
+              setSelectedPerson={setSelectedPerson}
+              people={people}
+            />
+          </div>
         </div>
       </div>
     </div>
