@@ -17,7 +17,7 @@ export default function RevampedDropdown({
         {selectedFormat.name}
       </button>
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-2 w-15 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
+        <div className="absolute mt-2 w-18 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
           <button
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
             onClick={() => {
