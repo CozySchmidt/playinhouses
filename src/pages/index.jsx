@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Dropdown from "../components/Dropdown";
+import RevampedDropdown from "@/components/revamped_Dropdown";
 
 export default function Home({ championNames }) {
   const format = [
@@ -11,8 +12,8 @@ export default function Home({ championNames }) {
   const [team1, setTeam1] = useState([]);
   const [team2, setTeam2] = useState([]);
   const [isGenerated, setIsGenerated] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  console.log(typeof team1);
   const [inputValue, setInputValues] = useState({
     player1: "",
     player2: "",
@@ -73,7 +74,7 @@ export default function Home({ championNames }) {
   };
 
   return (
-    <div className="bg-league_blue_header h-screen">
+    <div className="bg-league_blue_header h-screen ">
       <div className="p-5">
         <p className="font-bold text-yellow-600 text-center text-3xl font-beaufortheavyitalic">
           InHouses
@@ -143,7 +144,7 @@ export default function Home({ championNames }) {
                   />
                 </div>
               ))}
-              <div className="flex flex-row justify-between items-center">
+              <div className="flex flex-row justify-between items-center relative">
                 <button
                   className="bg-yellow-600  hover:bg-blue-700 text-white font-bold py-2 px-4 mr-4 rounded font-beaufortheavy"
                   onClick={() => {
@@ -153,13 +154,13 @@ export default function Home({ championNames }) {
                 >
                   Generate
                 </button>
-                <div className="bg-yellow-600 absolute bg-white rounded-md p-2 ml-28 font-beaufortheavy text-white">
-                  <Dropdown
-                    selectedFormat={selectedFormat}
-                    setSelectedFormat={setSelectedFormat}
-                    format={format}
-                  />
-                </div>
+                <RevampedDropdown
+                  selectedFormat={selectedFormat}
+                  setSelectedFormat={setSelectedFormat}
+                  format={format}
+                  isDropdownOpen={isDropdownOpen}
+                  setIsDropdownOpen={setIsDropdownOpen}
+                />
                 <button
                   className="bg-yellow-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font-beaufortheavy"
                   onClick={() => {
