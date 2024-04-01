@@ -130,7 +130,7 @@ export default function Home({ championNames }) {
                     type="text"
                     placeholder="Enter name"
                     name={`player${2 * i + 1}`}
-                    className="h-12 text-2xl bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 font-beaufortheavy"
+                    className="h-12 text-xl bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 font-beaufortheavy"
                     value={inputValue[`player${2 * i + 1}`]}
                     onChange={handleInputChange}
                   />
@@ -138,7 +138,7 @@ export default function Home({ championNames }) {
                     type="text"
                     placeholder="Enter name"
                     name={`player${2 * i + 2}`}
-                    className="h-12 text-2xl bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 font-beaufortheavy"
+                    className="h-12 text-xl bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 font-beaufortheavy"
                     value={inputValue[`player${2 * i + 2}`]}
                     onChange={handleInputChange}
                   />
